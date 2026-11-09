@@ -1,0 +1,8 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/Wingrammer/nextplay_kanban.git
+	branch = master
+[submodule "backend"]
+	path = backend
+	url = https://github.com/Wingrammer/kanban-backend.git
+	branch = main
