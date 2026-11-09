@@ -1,4 +1,4 @@
-﻿# Next Play Task Manager Assessment
+# Next Play Task Manager Assessment
 
 **Author:** Winner Le Paradoxe Konou
 
@@ -24,6 +24,10 @@ Use a recursive clone: GitHub's source ZIP does not include submodule contents.
 - Frontend: https://nextplay-kanban-pi.vercel.app
 - Gin API and Swagger: https://nextplay-kanban-api.vercel.app/swagger/index.html
 
+## Board preview
+
+![Kanban board with folder-style task cards, team members, search filters and task statistics](docs/images/board.png)
+
 ## Repository layout
 
 ```text
@@ -33,6 +37,12 @@ task-manager-assessment/
 ```
 
 Gin owns all business logic, authentication operations, database access, migrations and the Supabase Realtime subscription. Next.js handles presentation and session/proxy routes; it contains no Supabase client or database credentials.
+
+## Architecture
+
+![Browser and Next.js session proxy communicating with Gin, Supabase Auth, Postgres RPCs and Supabase Realtime, with updates relayed over SSE](docs/images/architecture.png)
+
+Gin subscribes to Supabase Realtime and relays committed changes to the browser over SSE.
 
 The original histories remain available in the frontend and backend submodules. The parent stores their exact commit IDs so reviewers can reproduce this assessment snapshot.
 
